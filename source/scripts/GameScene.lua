@@ -13,21 +13,22 @@ Z_INDEXES = {
     Pickup = 50
 }
 
-local usePrecomputedLevels = not playdate.isSimulator
+-- local usePrecomputedLevels = not playdate.isSimulator
 
-ldtk.load("levels/world.ldtk", usePrecomputedLevels)
+ldtk.load("levels/world.ldtk", false)
 
-if playdate.isSimulator then
-    ldtk.export_to_lua_files()
-end
+-- if playdate.isSimulator then
+--     ldtk.export_to_lua_files()
+-- end
 
 class("GameScene").extends()
 
 function GameScene:init()
 
     self:goToLevel("Level_0")
-    self.spawnX = 6 * 16
-    self.spawnY = 9 * 16
+    -- Change the number to change where you start
+    self.spawnX = 1 * 16
+    self.spawnY = 10 * 16
 
     self.player = Player(self.spawnX, self.spawnY, self)
 end
